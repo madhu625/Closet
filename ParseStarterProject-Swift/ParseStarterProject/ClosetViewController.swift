@@ -50,7 +50,7 @@ class ClosetViewController: UIViewController,UITableViewDataSource, UICollection
     @IBAction func onPictureButton(sender: AnyObject) {
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .Alert)
         let cameraAction = UIAlertAction(title: "camera", style: .Default) { (action) -> Void in
-            print("camera function is called here \(sender.tag)", terminator: "")
+            print("camera function is called here \(sender.tag)")
             self.selectedCategory = sender.tag
             let picker = UIImagePickerController()
             picker.delegate = self
@@ -58,7 +58,7 @@ class ClosetViewController: UIViewController,UITableViewDataSource, UICollection
             self.presentViewController(picker, animated: true, completion: nil)
         }
         let albumAction = UIAlertAction(title: "album", style: .Default) { (action) -> Void in
-            print("album function is called here \(sender.tag)", terminator: "")
+            print("album function is called here \(sender.tag)")
             self.selectedCategory = sender.tag
             let picker = UIImagePickerController()
             picker.delegate = self
@@ -67,7 +67,7 @@ class ClosetViewController: UIViewController,UITableViewDataSource, UICollection
             
         }
         let cancelAction = UIAlertAction(title: "cancel", style: .Default) { (action) -> Void in
-            print("cancel function is called here", terminator: "")
+            print("cancel function is called here")
         }
         alertController.addAction(cameraAction)
         alertController.addAction(albumAction)
@@ -79,22 +79,19 @@ class ClosetViewController: UIViewController,UITableViewDataSource, UICollection
     }
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-        print("hello")
         let selectedImage = info[UIImagePickerControllerOriginalImage] as? UIImage
         let navController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("PhotoSelectViewController") as! PhotoSelectViewController
-        print (selectedCategory, terminator: "")
         
+        print (selectedCategory)
         let selectedCategoryLabel = categories[selectedCategory] as! NSString as String
-        print (selectedCategoryLabel, terminator: "")
-        
+        print (selectedCategoryLabel)
         
         navController.inputPhotoCategory = selectedCategoryLabel
         navController.inputPhotoImage = selectedImage
         navController.inputCategoryTag = selectedCategory
-        
-        self.navigationController?.pushViewController(navController, animated: false)
-        
-        self.dismissViewControllerAnimated(true){}
+ 
+        self.navigationController!.pushViewController(navController, animated: true)
+        self.dismissViewControllerAnimated(true, completion: nil)
         
     }
     

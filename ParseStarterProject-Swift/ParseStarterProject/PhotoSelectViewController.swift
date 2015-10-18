@@ -16,7 +16,6 @@ class PhotoSelectViewController: UIViewController, UIPickerViewDataSource, UIPic
     @IBOutlet weak var pickerView: UIPickerView!
     var inputCategoryTag:Int = 0
     
-    // var pickerDataSource = ["White", "Red", "Green", "Blue"];
     let categories: NSArray = ["Shirts", "Pants", "Accessories"]
     
     
@@ -42,7 +41,7 @@ class PhotoSelectViewController: UIViewController, UIPickerViewDataSource, UIPic
         //save category,image via. Parse
         print ("saved to parse")
         
-        let navController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("MainNavigationController") as! UINavigationController
+        let navController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("CategoryNavigationController") as! UINavigationController
         self.presentViewController(navController, animated: false, completion: nil)
         // self.navigationController?.pushViewController(navController, animated: false)
     }
