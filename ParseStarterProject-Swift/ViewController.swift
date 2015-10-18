@@ -57,7 +57,7 @@ class ViewController: UIViewController {
                             
                             self.wearToday.frame = CGRect(x: (self.view.frame.size.width/2) - (self.wearToday.frame.size.width/2), y: 185, width: self.wearToday.frame.size.width, height: self.wearToday.frame.size.height)
                             
-                            self.guestButton.frame = CGRect(x: (self.view.frame.size.width/2) - (self.guestButton.frame.size.width/2), y: 484, width: self.guestButton.frame.size.width, height: self.guestButton.frame.size.height)
+                            self.guestButton.frame = CGRect(x: (self.view.frame.size.width/2) - (self.guestButton.frame.size.width/2), y: 400, width: self.guestButton.frame.size.width, height: self.guestButton.frame.size.height)
                             
                             }, completion: { (Bool) -> Void in
                                 

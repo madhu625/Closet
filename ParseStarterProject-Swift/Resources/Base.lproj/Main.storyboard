@@ -60,22 +60,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lMe-xP-LWU">
-                                <rect key="frame" x="28" y="518" width="30" height="30"/>
+                                <rect key="frame" x="20" y="339" width="30" height="30"/>
                                 <state key="normal" title="Skip"/>
                                 <connections>
                                     <segue destination="ai7-wr-GKM" kind="modal" id="c7b-BI-B1o"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dvF-mu-ZQg">
+                                <rect key="frame" x="137" y="232" width="46" height="30"/>
+                                <state key="normal" title="Page 1"/>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dmw-IJ-NCw">
-                                <rect key="frame" x="253" y="518" width="32" height="30"/>
+                                <rect key="frame" x="244" y="339" width="32" height="30"/>
                                 <state key="normal" title="Next"/>
                                 <connections>
                                     <segue destination="1Mg-kM-RcK" kind="modal" id="8aI-ot-cne"/>
                                 </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dvF-mu-ZQg">
-                                <rect key="frame" x="137" y="232" width="46" height="30"/>
-                                <state key="normal" title="Page 1"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -98,22 +98,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ae3-2j-L6C">
-                                <rect key="frame" x="28" y="518" width="30" height="30"/>
+                                <rect key="frame" x="32" y="347" width="30" height="30"/>
                                 <state key="normal" title="Skip"/>
                                 <connections>
                                     <segue destination="ai7-wr-GKM" kind="modal" id="ADg-Bm-feX"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ofv-At-86Z">
+                                <rect key="frame" x="136" y="251" width="48" height="30"/>
+                                <state key="normal" title="Page 2"/>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JGH-TU-ESi">
-                                <rect key="frame" x="261" y="518" width="32" height="30"/>
+                                <rect key="frame" x="268" y="347" width="32" height="30"/>
                                 <state key="normal" title="Next"/>
                                 <connections>
                                     <segue destination="49B-wK-QaZ" kind="modal" id="6In-t6-ESF"/>
                                 </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ofv-At-86Z">
-                                <rect key="frame" x="136" y="251" width="48" height="30"/>
-                                <state key="normal" title="Page 2"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -135,16 +135,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UAE-NK-SJQ">
+                                <rect key="frame" x="136" y="236" width="48" height="30"/>
+                                <state key="normal" title="Page 3"/>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wZo-ZE-fgX">
-                                <rect key="frame" x="259" y="518" width="37" height="30"/>
+                                <rect key="frame" x="263" y="350" width="37" height="30"/>
                                 <state key="normal" title="Done"/>
                                 <connections>
                                     <segue destination="ai7-wr-GKM" kind="modal" id="CEs-Gf-dKi"/>
                                 </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UAE-NK-SJQ">
-                                <rect key="frame" x="136" y="236" width="48" height="30"/>
-                                <state key="normal" title="Page 3"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -180,19 +180,22 @@
                                 <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="OR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LzC-Zg-rQs">
-                                <rect key="frame" x="145" y="433" width="29" height="21"/>
+                                <rect key="frame" x="145" y="434" width="29" height="21"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="18"/>
                                 <color key="textColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g0m-bi-EjY">
-                                <rect key="frame" x="98" y="518" width="124" height="30"/>
-                                <state key="normal" title="Continue as guest"/>
-                            </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mVT-Nu-rWE" userLabel="Right HR">
-                                <rect key="frame" x="195" y="444" width="100" height="1"/>
+                                <rect key="frame" x="198" y="444" width="97" height="1"/>
                                 <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g0m-bi-EjY">
+                                <rect key="frame" x="97" y="453" width="124" height="30"/>
+                                <state key="normal" title="Continue as guest"/>
+                                <connections>
+                                    <segue destination="oLz-bo-ZeF" kind="modal" id="ZvI-Zk-PYO"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -230,7 +233,7 @@
                                         <rect key="frame" x="0.0" y="92" width="320" height="119"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kbh-hb-hh7" id="CvG-VN-hJ0">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="118.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="119"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="agw-5a-PsF">
@@ -263,7 +266,7 @@
                                                     </collectionViewFlowLayout>
                                                     <cells>
                                                         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ItemCell" id="yCv-tS-mb5" customClass="ItemCell" customModule="ParseStarterProject_Swift" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="10.5" width="66" height="67"/>
+                                                            <rect key="frame" x="0.0" y="11" width="66" height="67"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                                                 <rect key="frame" x="0.0" y="0.0" width="66" height="67"/>
@@ -451,6 +454,7 @@
             <objects>
                 <navigationController storyboardIdentifier="CategoryNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="oLz-bo-ZeF" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="H3o-kN-hph"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="f6I-c5-rHp">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -472,6 +476,6 @@
         <image name="plusbutton" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="c7b-BI-B1o"/>
+        <segue reference="CEs-Gf-dKi"/>
     </inferredMetricsTieBreakers>
 </document>
