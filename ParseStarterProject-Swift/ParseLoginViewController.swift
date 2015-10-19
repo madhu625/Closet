@@ -16,6 +16,7 @@ class ParseLoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print ("in parse login view controller")
         
         saveCategories()
         
@@ -51,7 +52,6 @@ class ParseLoginViewController: UIViewController {
     }
     
     @IBAction func parseLogin(sender: UIButton) {
-
         
         PFUser.logInWithUsernameInBackground(emailTextField.text!, password:passwordTextField.text!) {
             (user: PFUser?, error: NSError?) -> Void in
