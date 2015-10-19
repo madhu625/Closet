@@ -10,6 +10,7 @@ import UIKit
 
 class Category: NSObject {
     var categoryName: String? // Example: Top, Shoes, Appeareal
+    var items: [Item]?
     
     init(categoryName: String) {
         super.init()

@@ -12,7 +12,6 @@ import Parse
 
 class PhotoSelectViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
-    
     @IBOutlet weak var photoCategory: UILabel!
     @IBOutlet weak var photoImage: UIImageView!
     @IBOutlet weak var pickerView: UIPickerView!
@@ -55,6 +54,68 @@ class PhotoSelectViewController: UIViewController, UIPickerViewDataSource, UIPic
         //}
     }
     
+    func add(newCategory: Category) {
+        let PFCategory = PFObject(className: "Category")
+        PFCategory["categoryName"] = newCategory.categoryName
+        PFCategory["ownedBy"] = PFUser.currentUser()
+        
+        PFCategory.saveInBackgroundWithBlock {
+            (success: Bool, error: NSError?) -> Void in
+            if (success) {
+                print("Saved new Category \(newCategory.categoryName)")
+            } else {
+                print("Error in Saving Category: \(error)")
+                
+                // There was a problem, check error.description
+            }
+        }
+    }
+
+    
+    func addItem(newItem: Item, toACategory: PFObject){
+        let PFItem = PFObject(className: "Item")
+        PFItem["itemId"] = newItem.itemId
+        PFItem["itemName"] = newItem.itemName
+        PFItem["itemComments"] = newItem.itemComments
+        let imageData = UIImageJPEGRepresentation(newItem.itemImage!, 1.0)
+        let imageFile = PFFile(name: "myfile.png", data:imageData!)
+        PFItem["itemImage"] = imageFile
+        
+        var itemData: [AnyObject] = []
+        itemData.append(newItem.itemId!)
+        itemData.append(imageFile!)
+        
+        var query = PFQuery(className: "Category")
+        query.getObjectInBackgroundWithId(toACategory.objectId!){
+            (myCategory: PFObject?, error: NSError?) -> Void in
+            if error != nil {
+                print (error)
+            } else {
+                var currentItems: [AnyObject] = []
+                if (toACategory["items"] == nil){
+                }
+                else{
+                   // currentItems = itemData
+                  currentItems = toACategory["items"] as! [AnyObject]!
+                }
+                currentItems.append(itemData)
+                toACategory["items"] = currentItems
+                print ("in addItem")
+                print (toACategory)
+                print (toACategory["items"])
+                toACategory.saveInBackground()
+
+            }
+            
+        }
+        
+
+
+        
+        
+    }
+    
+    
     
     //parse end
     
@@ -81,11 +142,9 @@ class PhotoSelectViewController: UIViewController, UIPickerViewDataSource, UIPic
         var selectedCategory = inputCategories[inputCategoryIndex]
         //Add New Item to a Category
         let selectedItem  = Item(itemId: 1, itemName: "", itemImage: inputPhotoImage, itemcomments: "")
-        add(selectedItem, toACategory: selectedCategory)
+        addItem(selectedItem, toACategory: selectedCategory)
         
         print ("saved to parse")
-
-        
         
         let navController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("CategoryNavigationController") as! UINavigationController
         self.presentViewController(navController, animated: false, completion: nil)
@@ -108,8 +167,6 @@ class PhotoSelectViewController: UIViewController, UIPickerViewDataSource, UIPic
         photoImage.image = inputPhotoImage
         pickerView.selectRow(inputCategoryTag, inComponent: 0, animated: false)
         // mPicker.selectRow(defaultRowIndex!, inComponent: 0, animated: false)
-    
-        
         
     }
 
