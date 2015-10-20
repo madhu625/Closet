@@ -16,6 +16,7 @@
 		20A032241BD6931D00574DEF /* OutFitCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A032231BD6931D00574DEF /* OutFitCellCollectionViewCell.swift */; };
 		27DA15031BD6D60100EEBACE /* Tour2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DA15021BD6D60100EEBACE /* Tour2ViewController.swift */; };
 		27DA15051BD6D60C00EEBACE /* Tour3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DA15041BD6D60C00EEBACE /* Tour3ViewController.swift */; };
+		27DA15071BD6EB9000EEBACE /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DA15061BD6EB9000EEBACE /* BaseViewController.swift */; };
 		814C3ACA1B69877600E307BB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 814C3AC61B69877600E307BB /* Main.storyboard */; };
 		814C3ACB1B69877600E307BB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 814C3AC81B69877600E307BB /* Images.xcassets */; };
 		81BA814B1A49DA1800E65899 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BA814A1A49DA1800E65899 /* AppDelegate.swift */; };
@@ -47,6 +48,7 @@
 		20A032231BD6931D00574DEF /* OutFitCellCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutFitCellCollectionViewCell.swift; sourceTree = "<group>"; };
 		27DA15021BD6D60100EEBACE /* Tour2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tour2ViewController.swift; sourceTree = "<group>"; };
 		27DA15041BD6D60C00EEBACE /* Tour3ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tour3ViewController.swift; sourceTree = "<group>"; };
+		27DA15061BD6EB9000EEBACE /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		652061222BAE37225AE5E1A8 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		814C3AC71B69877600E307BB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		814C3AC81B69877600E307BB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 				20A0321F1BD6842700574DEF /* ShowOutFitsCollectionViewController.swift */,
 				27DA15021BD6D60100EEBACE /* Tour2ViewController.swift */,
 				27DA15041BD6D60C00EEBACE /* Tour3ViewController.swift */,
+				27DA15061BD6EB9000EEBACE /* BaseViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -333,6 +336,7 @@
 				20775C5D1BCADA50001471BC /* CategoryViewController.swift in Sources */,
 				20A032241BD6931D00574DEF /* OutFitCellCollectionViewCell.swift in Sources */,
 				20775C531BC98D85001471BC /* Category.swift in Sources */,
+				27DA15071BD6EB9000EEBACE /* BaseViewController.swift in Sources */,
 				AD870FAE1BD2FFBD00F7034A /* TourViewController.swift in Sources */,
 				AD870FA81BD2FF2600F7034A /* PhotoSelectViewController.swift in Sources */,
 				20775C511BC98A33001471BC /* Item.swift in Sources */,
