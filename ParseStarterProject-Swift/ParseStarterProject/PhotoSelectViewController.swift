@@ -43,7 +43,7 @@ class PhotoSelectViewController: UIViewController, UIPickerViewDataSource, UIPic
 
     
     func addItem(newItem: Item, toACategory: PFObject){
-        let imageData = UIImageJPEGRepresentation(newItem.itemImage!, 1.0)
+        let imageData = UIImageJPEGRepresentation(newItem.itemImage!, 0.4)
         let imageFile = PFFile(name: "myfile.png", data:imageData!)
         var query = PFQuery(className: "Category")
         query.getObjectInBackgroundWithId(toACategory.objectId!){
@@ -69,6 +69,8 @@ class PhotoSelectViewController: UIViewController, UIPickerViewDataSource, UIPic
                 (success: Bool, error: NSError?) -> Void in
                     if error == nil {
                         print ("file saved successfully")
+                        let navController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("CategoryNavigationController") as! UINavigationController
+                        self.presentViewController(navController, animated: false, completion: nil)
                     } else {
                         print (error)
                         print ("error in saving new item")
@@ -111,8 +113,8 @@ class PhotoSelectViewController: UIViewController, UIPickerViewDataSource, UIPic
         addItem(selectedItem, toACategory: selectedCategory)
         
        // print ("saved to parse")
-       let navController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("CategoryNavigationController") as! UINavigationController
-       self.presentViewController(navController, animated: false, completion: nil)
+        
+
     }
     
     
