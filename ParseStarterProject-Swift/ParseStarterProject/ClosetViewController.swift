@@ -17,9 +17,9 @@ class ClosetViewController: UIViewController,UITableViewDataSource, UICollection
     
     @IBOutlet weak var tableView: UITableView!
     
+   // int cat1Item
+   // int cat
     
-   // let categories: NSArray = ["Accessories","Shirts", "Pants"]
-   // var items: NSArray = [["Shirt1", "Shirt2", "Shirt3"],["Pant1", "Pant2", "Pant3", "Pant4"],["Shoe1", "Shoe2", "Shoe3", "Shoe4", "Shoe5"] ]
     
     var selectedCategory:Int = 0
     
@@ -141,18 +141,18 @@ class ClosetViewController: UIViewController,UITableViewDataSource, UICollection
     
     @IBAction func onCreateOutfit(sender: AnyObject) {
         let navController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("OutfitViewController") as! OutfitViewController
-        var localOutfit = [AnyObject]()
-        localOutfit.append (closetCategories[0]["items"][0])
-        localOutfit.append (closetCategories[1]["items"][0])
-        localOutfit.append (closetCategories[2]["items"][0])
+        
+        var localOutfit = [PFFile]()
+        localOutfit.append (closetCategories[0]["items"][0] as! PFFile)
+        localOutfit.append (closetCategories[1]["items"][0] as! PFFile)
+        localOutfit.append (closetCategories[2]["items"][0] as! PFFile)
+        
+        
+        print("----------------------------------")
+        print(localOutfit)
         
         navController.outfitImages = localOutfit
 
-
-        
-
-        
-      //  navController.outfitImages = ["http://ep.yimg.com/ay/stylinonline/star-wars-here-comes-trouble-youth-t-shirt-5.jpg","http://www.senecahs.org/vimages/shared/vnews/stories/54d37da28bc2f/1_jeans.jpg", "http://nsrgtrading.com/wp-content/uploads/2014/09/66.jpg"]
         
         self.navigationController!.pushViewController(navController, animated: true)
         //self.dismissViewControllerAnimated(true, completion: nil)
@@ -265,7 +265,7 @@ class ClosetViewController: UIViewController,UITableViewDataSource, UICollection
         cell.categoryLabel.text = name as! String
         cell.itemCollectionView.tag = indexPath.row
         cell.photoButton.tag = indexPath.row
-        
+        cell.itemCollectionView.delegate = self
         return cell
     }
     
@@ -291,8 +291,36 @@ class ClosetViewController: UIViewController,UITableViewDataSource, UICollection
                 }
             }
         }
-        return cell
+        
+        if (cell.selected) {
+            cell.alpha = 0.5
+        }
+        else
+        {
+            cell.alpha = 1
+        }
+        return cell;
+
     }
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        var collectonViewCount = collectionView.numberOfItemsInSection(0)
+        
+        
+      //  for int i in 0..<collectonViewCount
+      //  {
+       //     collectionView.cellForItemAtIndexPath(i).alpha = 1
+       // }
+        
+        print ("I am selected \(indexPath) \(collectionView.tag)")
+        let cell = collectionView.cellForItemAtIndexPath(indexPath)
+        cell?.alpha = 0.5
+        
+        
+    }
+    
+    
+    
     
     override func viewDidLoad() {
         //let topCategory = Category(categoryName: "Pants")
@@ -342,7 +370,6 @@ class ClosetViewController: UIViewController,UITableViewDataSource, UICollection
       //  let selectedCategoryLabel = closetCategories[selectedCategory] as! NSString as String
         let selectedCategoryLabel = closetCategories[selectedCategory]["categoryName"] as! String
 
-        
        // let selectedCategoryLabel = categories[selectedCategory] as! NSString as String
         print (selectedCategoryLabel)
         
