@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "6631F1D712EF617DE2634C3EB048BB0E4872A633",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "E371E39A73B88BDB7FE2EB3C046DFBA6B4B6CD0C" : 0,
+    "6631F1D712EF617DE2634C3EB048BB0E4872A633" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "F0778079-DA30-4950-98F3-6A8DA5A4A06D",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "E371E39A73B88BDB7FE2EB3C046DFBA6B4B6CD0C" : "",
+    "6631F1D712EF617DE2634C3EB048BB0E4872A633" : "Closet\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Watoo",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "ParseStarterProject-Swift\/Watoo.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/madhu625\/Closet.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "6631F1D712EF617DE2634C3EB048BB0E4872A633"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/jrshah\/watoo.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "E371E39A73B88BDB7FE2EB3C046DFBA6B4B6CD0C"
+    }
+  ]
+}
