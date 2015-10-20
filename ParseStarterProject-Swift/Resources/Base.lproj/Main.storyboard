@@ -658,6 +658,9 @@
                             <outlet property="delegate" destination="kEa-6O-Bva" id="dxd-5F-K5t"/>
                         </connections>
                     </collectionView>
+                    <connections>
+                        <outlet property="collectionView" destination="scr-2j-Q8a" id="rau-Xo-EnI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sJh-6H-oFN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

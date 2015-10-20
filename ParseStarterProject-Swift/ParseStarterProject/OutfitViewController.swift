@@ -22,7 +22,7 @@ class OutfitViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         showOutFit(self.outfitImages)
-        fetchOldOutfits()
+        //fetchOldOutfits()
     }
     
     
@@ -65,7 +65,7 @@ class OutfitViewController: UIViewController {
     @IBAction func showPreviousOutfits(sender: UIButton) {
         let navVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ShowOutFitsCollectionViewController") as! ShowOutFitsCollectionViewController
         
-        navVC.fetchedOutFitImagesDict = self.fetchedOutFitImagesDict
+       // navVC.fetchedOutFitImagesDict = self.fetchedOutFitImagesDict
         self.navigationController!.pushViewController(navVC, animated: true)
     }
     

@@ -10,32 +10,45 @@ import UIKit
 import Parse
 
 class ShowOutFitsCollectionViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
-
     var fetchedOutFitImagesDict = [String:[PFFile]]()
+    
+    @IBOutlet var collectionView: UICollectionView!
     var outFitNames = [String]()
+    
+    func fetchOldOutfits() {
+        let query = PFQuery(className:"outfits")
+        // query.orderByDescending("outfitName")
+        query.findObjectsInBackgroundWithBlock { (outFitObjects: [PFObject]?, error: NSError?) -> Void in
+            if error == nil && outFitObjects != nil {
+                for outFitObject in outFitObjects! {
+                    if let outFitName = outFitObject["outfitName"] as? String {
+                        let outFit = outFitObject["outfitImages"] as! [PFFile]
+                        self.fetchedOutFitImagesDict[outFitName] = outFit
+                    }
+                }
+                for (name, _) in self.fetchedOutFitImagesDict{
+                    self.outFitNames.append(name)
+                }
+                self.collectionView.reloadData()
+            } else {
+                print(error)
+            }
+        }
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-       // print("Printing fetched array")
-        for (name, _) in self.fetchedOutFitImagesDict{
-           // print(name)
-            self.outFitNames.append(name)
-        }
-        
-        //self.outFitNames = self.fetchedOutFitImagesDict.keys as! String
-        //print(self.outFitNames)
-        // Do any additional setup after loading the view.
+        fetchOldOutfits()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        //  return items[collectionView.tag].count ?? 0
-        return self.fetchedOutFitImagesDict.count
+        return self.fetchedOutFitImagesDict.count ?? 0
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
@@ -75,22 +88,7 @@ class ShowOutFitsCollectionViewController: UIViewController, UICollectionViewDel
                 }
             }
         }
-        
         return cell
     }
     
-
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
-
