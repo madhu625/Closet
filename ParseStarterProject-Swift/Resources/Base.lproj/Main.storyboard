@@ -8,7 +8,7 @@
         <!--Category View Controller-->
         <scene sceneID="43v-hb-CJ8">
             <objects>
-                <viewController storyboardIdentifier="CategoryViewController" id="2aG-K7-tTM" customClass="CategoryViewController" customModule="ParseStarterProject_Swift" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CategoryViewController" id="2aG-K7-tTM" customClass="CategoryViewController" customModule="Watoo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gI4-a1-yGR"/>
                         <viewControllerLayoutGuide type="bottom" id="Vnl-Rc-3sC"/>
@@ -50,7 +50,7 @@
         <!--Tour View Controller-->
         <scene sceneID="Xwf-rF-D5N">
             <objects>
-                <viewController storyboardIdentifier="TourViewController" id="YTH-Jb-K5v" customClass="TourViewController" customModule="ParseStarterProject_Swift" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TourViewController" id="YTH-Jb-K5v" customClass="TourViewController" customModule="Watoo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="okZ-80-eJD"/>
                         <viewControllerLayoutGuide type="bottom" id="iMc-kF-Py8"/>
@@ -157,7 +157,7 @@
         <!--View Controller-->
         <scene sceneID="Zif-k6-0yd">
             <objects>
-                <viewController storyboardIdentifier="ViewController" id="ai7-wr-GKM" customClass="ViewController" customModule="ParseStarterProject_Swift" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController" id="ai7-wr-GKM" customClass="ViewController" customModule="Watoo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fM4-g7-MPe"/>
                         <viewControllerLayoutGuide type="bottom" id="Nxp-Wy-G1a"/>
@@ -213,10 +213,10 @@
             </objects>
             <point key="canvasLocation" x="-832" y="89"/>
         </scene>
-        <!--Closet View Controller-->
+        <!--Closet-->
         <scene sceneID="i58-dO-ADz">
             <objects>
-                <viewController storyboardIdentifier="ClosetViewController" id="7Ih-VP-cXf" customClass="ClosetViewController" customModule="ParseStarterProject_Swift" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ClosetViewController" id="7Ih-VP-cXf" customClass="ClosetViewController" customModule="Watoo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bRZ-bB-qCf"/>
                         <viewControllerLayoutGuide type="bottom" id="N4c-Jp-EEF"/>
@@ -226,10 +226,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="119" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dHx-fe-Frn">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CategoryCell" rowHeight="119" id="kbh-hb-hh7" customClass="CategoryCell" customModule="ParseStarterProject_Swift" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CategoryCell" rowHeight="119" id="kbh-hb-hh7" customClass="CategoryCell" customModule="Watoo" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="92" width="320" height="119"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kbh-hb-hh7" id="CvG-VN-hJ0">
@@ -253,37 +253,33 @@
                                                             </connections>
                                                         </button>
                                                     </subviews>
-                                                    <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                                 </view>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="02W-Gj-7i4">
                                                     <rect key="frame" x="10" y="23" width="261" height="88"/>
-                                                    <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="9wz-VG-onp">
-                                                        <size key="itemSize" width="66" height="67"/>
+                                                        <size key="itemSize" width="76" height="77.5"/>
                                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                     </collectionViewFlowLayout>
                                                     <cells>
-                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ItemCell" id="yCv-tS-mb5" customClass="ItemCell" customModule="ParseStarterProject_Swift" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="11" width="66" height="67"/>
+                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ItemCell" id="yCv-tS-mb5" customClass="ItemCell" customModule="Watoo" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="6" width="76" height="78"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                                <rect key="frame" x="0.0" y="0.0" width="66" height="67"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="76" height="78"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bRd-za-aCn">
-                                                                        <rect key="frame" x="8" y="41" width="58" height="21"/>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                                        <nil key="highlightedColor"/>
-                                                                    </label>
+                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RlR-jw-lHa">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="76" height="78"/>
+                                                                    </imageView>
                                                                 </subviews>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                             </view>
                                                             <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                             <connections>
-                                                                <outlet property="itemLabel" destination="bRd-za-aCn" id="riM-Ms-Gll"/>
+                                                                <outlet property="itemImageView" destination="RlR-jw-lHa" id="Tdv-72-JxS"/>
                                                             </connections>
                                                         </collectionViewCell>
                                                     </cells>
@@ -304,10 +300,17 @@
                                     <outlet property="dataSource" destination="7Ih-VP-cXf" id="U4p-jS-tPw"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F1m-sB-czW">
+                                <rect key="frame" x="116" y="519" width="89" height="30"/>
+                                <state key="normal" title="Create Outfit"/>
+                                <connections>
+                                    <action selector="onCreateOutfit:" destination="7Ih-VP-cXf" eventType="touchUpInside" id="FoO-Lx-CjY"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="NWx-Sb-pbb"/>
+                    <navigationItem key="navigationItem" title="Closet" id="NWx-Sb-pbb"/>
                     <connections>
                         <outlet property="tableView" destination="dHx-fe-Frn" id="AeM-eW-V9E"/>
                     </connections>
@@ -319,7 +322,7 @@
         <!--Outfit View Controller-->
         <scene sceneID="umv-kF-1vG">
             <objects>
-                <viewController storyboardIdentifier="OutfitViewController" id="qFZ-Hb-Jvk" customClass="OutfitViewController" customModule="ParseStarterProject_Swift" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OutfitViewController" id="qFZ-Hb-Jvk" customClass="OutfitViewController" customModule="Watoo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hMW-7K-hqy"/>
                         <viewControllerLayoutGuide type="bottom" id="iBx-iY-2v8"/>
@@ -327,17 +330,42 @@
                     <view key="view" contentMode="scaleToFill" id="tLe-AQ-8mz">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zmT-rd-M4w">
+                                <rect key="frame" x="40" y="28" width="240" height="128"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="r1N-Nt-4Wp">
+                                <rect key="frame" x="40" y="188" width="240" height="128"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EaQ-Mx-Ykd">
+                                <rect key="frame" x="40" y="343" width="240" height="128"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="if4-qY-fY0">
+                                <rect key="frame" x="43" y="518" width="40" height="30"/>
+                                <state key="normal" title="Share"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZpK-zL-XL5">
+                                <rect key="frame" x="243" y="510" width="34" height="30"/>
+                                <state key="normal" title="Save"/>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="5wI-S2-FbN"/>
+                    <connections>
+                        <outlet property="alphaImageView" destination="zmT-rd-M4w" id="Ygq-0K-yoD"/>
+                        <outlet property="betaImageView" destination="r1N-Nt-4Wp" id="yPj-Zq-ryD"/>
+                        <outlet property="deltaImageView" destination="EaQ-Mx-Ykd" id="J2s-2h-YhJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rJH-vv-oMq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-57" y="750"/>
+            <point key="canvasLocation" x="475" y="750"/>
         </scene>
         <!--Photo Select View Controller-->
         <scene sceneID="xez-p7-mti">
             <objects>
-                <viewController storyboardIdentifier="PhotoSelectViewController" id="7wZ-2f-c4R" customClass="PhotoSelectViewController" customModule="ParseStarterProject_Swift" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PhotoSelectViewController" id="7wZ-2f-c4R" customClass="PhotoSelectViewController" customModule="Watoo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="v3R-oR-vX2"/>
                         <viewControllerLayoutGuide type="bottom" id="rv5-y6-av7"/>
@@ -346,12 +374,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="piccategory" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xjp-mc-XDY">
-                                <rect key="frame" x="171" y="404" width="149" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4gb-9W-vtI">
                                 <rect key="frame" x="0.0" y="395" width="156" height="85"/>
                             </pickerView>
@@ -369,7 +391,6 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="photoCategory" destination="xjp-mc-XDY" id="HNV-6Q-UKY"/>
                         <outlet property="photoImage" destination="r8d-xA-hk2" id="rd7-pA-DTp"/>
                         <outlet property="pickerView" destination="4gb-9W-vtI" id="upF-DZ-ZqE"/>
                     </connections>
@@ -381,7 +402,7 @@
         <!--Parse Login View Controller-->
         <scene sceneID="dDM-Ra-YY1">
             <objects>
-                <viewController storyboardIdentifier="ParseLoginViewController" id="aA9-1N-ycr" customClass="ParseLoginViewController" customModule="ParseStarterProject_Swift" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ParseLoginViewController" id="aA9-1N-ycr" customClass="ParseLoginViewController" customModule="Watoo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="SAu-SO-T5s"/>
                         <viewControllerLayoutGuide type="bottom" id="jiX-92-JIe"/>

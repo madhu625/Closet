@@ -8,6 +8,7 @@
 
 import UIKit
 import Parse
+//import ParseUI
 
 class ClosetViewController: UIViewController,UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource,UIPopoverPresentationControllerDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
     
@@ -18,17 +19,26 @@ class ClosetViewController: UIViewController,UITableViewDataSource, UICollection
     
     
    // let categories: NSArray = ["Accessories","Shirts", "Pants"]
-    let items: NSArray = [["Shirt1", "Shirt2", "Shirt3"],["Pant1", "Pant2", "Pant3", "Pant4"],["Shoe1", "Shoe2", "Shoe3", "Shoe4", "Shoe5"] ]
+   // var items: NSArray = [["Shirt1", "Shirt2", "Shirt3"],["Pant1", "Pant2", "Pant3", "Pant4"],["Shoe1", "Shoe2", "Shoe3", "Shoe4", "Shoe5"] ]
     
     var selectedCategory:Int = 0
+    
     
     
     //Parse code begin
     
     var closetCategories = [PFObject]()
+    var closetItems = [[AnyObject]]()
+    
     var printCategories = [Category]()
     var PFItems: [[PFObject]]?
     
+    
+    func addUser() {
+        try! PFUser.currentUser()?.saveInBackground()
+    }
+    
+   
     func add(newCategory: Category) {
         let PFCategory = PFObject(className: "Category")
         PFCategory["categoryName"] = newCategory.categoryName
@@ -46,7 +56,7 @@ class ClosetViewController: UIViewController,UITableViewDataSource, UICollection
         }
     }
     
-    
+    /*
     
     func add(newItem: Item, toACategory: PFObject) {
         let PFItem = PFObject(className: "Item")
@@ -68,6 +78,78 @@ class ClosetViewController: UIViewController,UITableViewDataSource, UICollection
     }
     
     
+    func itemsFrom(category: PFObject) -> () {
+    
+    let query = PFQuery(className:"Item")
+    //query.whereKey("belongsToCategory", equalTo:category)
+    //dispatch_sync(dispatch_get_main_queue()) {
+    query.findObjectsInBackgroundWithBlock {
+    (items: [PFObject]?, error: NSError?) -> Void in
+    
+    if error == nil {
+    // The find succeeded.
+    print("Successfully retrieved \(items!.count).")
+    // Do something with the found objects
+    if let items = items as [PFObject]? {
+    //   self.PFItems = items
+    }
+    //  for pfitem in self.PFItems! {
+    //  print(pfitem["itemName"])
+    //  }
+    } else {
+    // Log details of the failure
+    print("Error: \(error!) \(error!.userInfo)")
+    }
+    }
+    }
+    
+    
+    func getItems() {
+    let query = PFQuery(className:"Item")
+    query.whereKey("belongsToCategory", equalTo:closetCategories[0])
+    //dispatch_sync(dispatch_get_main_queue()) {
+    query.findObjectsInBackgroundWithBlock {
+    (items: [PFObject]?, error: NSError?) -> Void in
+    
+    if error == nil {
+    // The find succeeded.
+    print("Successfully retrieved \(items!.count).")
+    // print(items)
+    // Do something with the found objects
+    if let items = items as [PFObject]? {
+    self.PFItems?.append(items)
+    print (self.PFItems)
+    self.tableView.reloadData()
+    }
+    print ("in getItems")
+    // print (self.PFItems)
+    //for pfitem in self.PFItems[0]! {
+    //   print (pfitem)
+    // print(pfitem["itemName"])
+    // }
+    } else {
+    // Log details of the failure
+    print("Error: \(error!) \(error!.userInfo)")
+    }
+    }
+    
+    
+    }
+
+
+    */
+    
+    @IBAction func onCreateOutfit(sender: AnyObject) {
+        let navController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("OutfitViewController") as! OutfitViewController
+        
+        navController.outfitImages = ["http://ep.yimg.com/ay/stylinonline/star-wars-here-comes-trouble-youth-t-shirt-5.jpg","http://www.senecahs.org/vimages/shared/vnews/stories/54d37da28bc2f/1_jeans.jpg", "http://nsrgtrading.com/wp-content/uploads/2014/09/66.jpg"]
+        
+        self.navigationController!.pushViewController(navController, animated: true)
+        //self.dismissViewControllerAnimated(true, completion: nil)
+        
+    }
+    
+    
     func getCategories() {
         
         let query = PFQuery(className:"Category")
@@ -76,12 +158,32 @@ class ClosetViewController: UIViewController,UITableViewDataSource, UICollection
             
             if error == nil {
                 // The find succeeded.
-                print("Successfully retrieved \(categories!.count).")
+                print("Successfully retrieved \(categories!.count) categories")
                 // Do something with the found objects
                 if let categories = categories as [PFObject]? {
                     self.closetCategories = categories
+                    
+                    
+                    for category in categories {
+                        var catItems = category["items"]
+                        if catItems != nil {
+                         //   print (catItems.count)
+                         //   print (catItems)
+                            self.closetItems.append(catItems as! ([AnyObject]))
+                          //  print (self.closetItems)
+                        }
+                        else{
+                            self.closetItems.append([])
+                        }
+                    }
+                    print (self.closetItems)
+                    
+                    var user = PFUser.currentUser()
+                    print ("user is \(user)")
+
+                    
                     self.tableView.reloadData()
-                    self.getItems()
+                  //  self.getItems()
                 }
                // for pfcategory in self.closetCategories {
                //     print(pfcategory["categoryName"])
@@ -94,57 +196,34 @@ class ClosetViewController: UIViewController,UITableViewDataSource, UICollection
         }
     }
     
-    
-    
-    func itemsFrom(category: PFObject) -> () {
-        
-        let query = PFQuery(className:"Item")
-        //query.whereKey("belongsToCategory", equalTo:category)
-        //dispatch_sync(dispatch_get_main_queue()) {
-        query.findObjectsInBackgroundWithBlock {
-            (items: [PFObject]?, error: NSError?) -> Void in
-            
-            if error == nil {
-                // The find succeeded.
-                print("Successfully retrieved \(items!.count).")
-                // Do something with the found objects
-                if let items = items as [PFObject]? {
-                 //   self.PFItems = items
-                }
-              //  for pfitem in self.PFItems! {
-                  //  print(pfitem["itemName"])
-              //  }
-            } else {
-                // Log details of the failure
-                print("Error: \(error!) \(error!.userInfo)")
-            }
-        }
-    }
-    
-    
     func getItems() {
-         let query = PFQuery(className:"Item")
-         query.whereKey("belongsToCategory", equalTo:closetCategories[0])
-        //dispatch_sync(dispatch_get_main_queue()) {
+        let query = PFQuery(className:"Category")
         query.findObjectsInBackgroundWithBlock {
-            (items: [PFObject]?, error: NSError?) -> Void in
+            (categories: [PFObject]?, error: NSError?) -> Void in
             
             if error == nil {
                 // The find succeeded.
-                print("Successfully retrieved \(items!.count).")
-                print(items)
+              //  print("Successfully retrieved \(categories!.count) categories to fetch items")
                 // Do something with the found objects
-                if let items = items as [PFObject]? {
-                    self.PFItems?.append(items)
-                    print (self.PFItems)
-                    self.tableView.reloadData()
+                if let categories = categories as [PFObject]? {
+                    self.closetCategories = categories
+                    
+                    for category in categories{
+                      var items = category["items"]
+                        if (items == nil){
+                            items = []
+                        }
+                        print (items)
+                        
+                    }
+                    
+                    //print (categories[1].items)
+                   // self.tableView.reloadData()
+                   // self.PFItems?.append(items)
+                   // print (self.PFItems)
+                   // self.tableView.reloadData()
                 }
-                print ("in getItems")
-                print (self.PFItems)
-                //for pfitem in self.PFItems[0]! {
-                 //   print (pfitem)
-                   // print(pfitem["itemName"])
-               // }
+                print ("in getItems from categories")
             } else {
                 // Log details of the failure
                 print("Error: \(error!) \(error!.userInfo)")
@@ -153,6 +232,9 @@ class ClosetViewController: UIViewController,UITableViewDataSource, UICollection
         
         
     }
+
+    
+    
     
     
     
@@ -178,21 +260,36 @@ class ClosetViewController: UIViewController,UITableViewDataSource, UICollection
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return items[collectionView.tag].count ?? 0
+      //  return items[collectionView.tag].count ?? 0
+        return closetItems[collectionView.tag].count ?? 0
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         var currentCategory = closetCategories[collectionView.tag]
-       // print (currentCategory)
-       // print ("Items in this category")
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("ItemCell", forIndexPath: indexPath) as! ItemCell
-        cell.itemLabel.text = items[collectionView.tag][indexPath.row] as! NSString as String
+        //cell.itemLabel.text = items[collectionView.tag][indexPath.row] as! NSString as String
+       //let profileImage = closetItems[collectionView.tag][0] as? PFFile
+        let profileImage = closetItems[collectionView.tag][indexPath.row] as? PFFile
+       // print (profileImage)
+        
+        profileImage?.getDataInBackgroundWithBlock{
+            (imageData: NSData?, error: NSError?) -> Void in
+            if error == nil {
+                if let imageData = imageData {
+                    let image = UIImage(data:imageData)
+                    cell.itemImageView.image = image
+                }
+            }
+        }
         return cell
     }
     
     override func viewDidLoad() {
-        getCategories()
+        //let topCategory = Category(categoryName: "Pants")
+        //add(topCategory)
         super.viewDidLoad()
+        addUser()
+        getCategories()
     }
     
     
@@ -238,7 +335,9 @@ class ClosetViewController: UIViewController,UITableViewDataSource, UICollection
         
        // let selectedCategoryLabel = categories[selectedCategory] as! NSString as String
         print (selectedCategoryLabel)
+        
     
+       // navController.user = PFUser.currentUser()
         navController.inputCategoryIndex = selectedCategory
         navController.inputCategories = closetCategories
         navController.inputPhotoCategory = selectedCategoryLabel
@@ -257,9 +356,12 @@ class CategoryCell:UITableViewCell{
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var itemCollectionView: UICollectionView!
     @IBOutlet weak var photoButton: UIButton!
+    
 }
 
 
 class ItemCell:UICollectionViewCell{
     @IBOutlet weak var itemLabel: UILabel!
+    @IBOutlet weak var itemImageView: UIImageView!
+    
 }

@@ -52,6 +52,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let defaultACL = PFACL();
 
         // If you would like all objects to be private by default, remove this line.
+        defaultACL.setPublicWriteAccess(true)
         defaultACL.setPublicReadAccess(true)
 
         PFACL.setDefaultACL(defaultACL, withAccessForCurrentUser:true)
@@ -119,6 +120,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             //print(" N-th time app launched ")
             
                     let currentUser = PFUser.currentUser()
+                    var user = PFUser.currentUser()
+                    print ("user is \(user)")
             
                     if currentUser != nil {
                         print("You are already signed in")
