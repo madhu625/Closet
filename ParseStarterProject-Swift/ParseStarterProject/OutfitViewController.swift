@@ -33,6 +33,7 @@ class OutfitViewController: UIViewController {
             }
         }
         
+
         self.outfitImages![1].getDataInBackgroundWithBlock{
             (imageData: NSData?, error: NSError?) -> Void in
             if error == nil {

@@ -21,14 +21,14 @@
 		81BA81791A49E0DB00E65899 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81BA81781A49E0DB00E65899 /* AudioToolbox.framework */; };
 		81BA817B1A49E0E500E65899 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81BA817A1A49E0E500E65899 /* SystemConfiguration.framework */; };
 		81BA817F1A49E0F000E65899 /* libstdc++.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 81BA817E1A49E0F000E65899 /* libstdc++.6.dylib */; };
-		AD4C96451BD583B000F501E6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4C96441BD583B000F501E6 /* User.swift */; settings = {ASSET_TAGS = (); }; };
-		AD4E04761BD5BC80009FB1EA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD4E04751BD5BC80009FB1EA /* LaunchScreen.storyboard */; settings = {ASSET_TAGS = (); }; };
-		AD4E04791BD5BF14009FB1EA /* ParseClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4E04781BD5BF14009FB1EA /* ParseClient.swift */; settings = {ASSET_TAGS = (); }; };
-		AD870FA61BD2FEE800F7034A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD870FA51BD2FEE800F7034A /* ViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		AD870FA81BD2FF2600F7034A /* PhotoSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD870FA71BD2FF2600F7034A /* PhotoSelectViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		AD870FAA1BD2FF9A00F7034A /* ClosetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD870FA91BD2FF9A00F7034A /* ClosetViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		AD870FAC1BD2FFAC00F7034A /* OutfitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD870FAB1BD2FFAC00F7034A /* OutfitViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		AD870FAE1BD2FFBD00F7034A /* TourViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD870FAD1BD2FFBD00F7034A /* TourViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		AD4C96451BD583B000F501E6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4C96441BD583B000F501E6 /* User.swift */; };
+		AD4E04761BD5BC80009FB1EA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD4E04751BD5BC80009FB1EA /* LaunchScreen.storyboard */; };
+		AD4E04791BD5BF14009FB1EA /* ParseClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4E04781BD5BF14009FB1EA /* ParseClient.swift */; };
+		AD870FA61BD2FEE800F7034A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD870FA51BD2FEE800F7034A /* ViewController.swift */; };
+		AD870FA81BD2FF2600F7034A /* PhotoSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD870FA71BD2FF2600F7034A /* PhotoSelectViewController.swift */; };
+		AD870FAA1BD2FF9A00F7034A /* ClosetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD870FA91BD2FF9A00F7034A /* ClosetViewController.swift */; };
+		AD870FAC1BD2FFAC00F7034A /* OutfitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD870FAB1BD2FFAC00F7034A /* OutfitViewController.swift */; };
+		AD870FAE1BD2FFBD00F7034A /* TourViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD870FAD1BD2FFBD00F7034A /* TourViewController.swift */; };
 		CEF3F49F22D0CA4F948BBD21 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E396C15CDE4BF2F5A0B968A4 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -207,6 +207,7 @@
 				81BA81431A49DA1800E65899 /* Resources */,
 				81CC85E11A49F6D40076DE19 /* Upload Symbol Files */,
 				CF4F33FC77A67F7F4781FDF4 /* Copy Pods Resources */,
+				0A1B4089D5B6E85C32DA3916 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -265,6 +266,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0A1B4089D5B6E85C32DA3916 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		6614BCBF32DF5AF3F59691EB /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -441,6 +457,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.parse.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = Watoo;
@@ -464,6 +481,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.parse.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = Watoo;

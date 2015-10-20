@@ -27,6 +27,8 @@ class ViewController: UIViewController {
         self.leftHRLabel.alpha = 0
         self.orLabel.alpha = 0
         self.rightHRLabel.alpha = 0
+        self.wearToday.alpha = 0
+        
         
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "background.png")!)
         
@@ -35,6 +37,11 @@ class ViewController: UIViewController {
     override func viewDidAppear(animated: Bool) {
         
         super.viewDidAppear(animated)
+       
+        self.wearToday.frame = CGRect(x: -20,y: 185, width: self.wearToday.frame.size.width, height: self.wearToday.frame.size.height)
+        
+         self.guestButton.frame = CGRect(x: (self.view.frame.size.width/2) - (self.guestButton.frame.size.width/2), y: self.view.frame.size.height + 100, width: self.guestButton.frame.size.width, height: self.guestButton.frame.size.height)
+        
         
         UIView.animateWithDuration(0.5, animations: { () -> Void in
             
@@ -55,9 +62,10 @@ class ViewController: UIViewController {
                         
                         UIView.animateWithDuration(0.5, delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 1.5, options: UIViewAnimationOptions.AllowUserInteraction, animations: { () -> Void in
                             
+                            self.wearToday.alpha = 1
                             self.wearToday.frame = CGRect(x: (self.view.frame.size.width/2) - (self.wearToday.frame.size.width/2), y: 185, width: self.wearToday.frame.size.width, height: self.wearToday.frame.size.height)
                             
-                            self.guestButton.frame = CGRect(x: (self.view.frame.size.width/2) - (self.guestButton.frame.size.width/2), y: 400, width: self.guestButton.frame.size.width, height: self.guestButton.frame.size.height)
+                            self.guestButton.frame = CGRect(x: (self.view.frame.size.width/2) - (self.guestButton.frame.size.width/2), y: 500, width: self.guestButton.frame.size.width, height: self.guestButton.frame.size.height)
                             
                             }, completion: { (Bool) -> Void in
                                 
