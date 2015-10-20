@@ -53,6 +53,16 @@ class ClosetViewController: UIViewController,UITableViewDataSource, UICollection
         }
     }
     
+    @IBAction func onLogout(sender: AnyObject) {
+        PFUser.logOut()
+        var currentUser = PFUser.currentUser()
+        
+        
+        let navController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ViewController") as UIViewController
+        navController.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
+        
+        self.presentViewController(navController, animated: true, completion: nil)
+    }
  
     @IBAction func onCreateOutfit(sender: AnyObject) {
         let navController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("OutfitViewController") as! OutfitViewController

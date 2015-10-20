@@ -142,7 +142,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             //print(" First time app launched ")
             defaults.setBool(true, forKey: "hasAppBeenLaunchedBefore")
             
-            let vc = storyBoard.instantiateViewControllerWithIdentifier("TourViewController") as UIViewController
+            let vc = storyBoard.instantiateViewControllerWithIdentifier("Tour1ViewController") as UIViewController
             window?.rootViewController = vc
             
             return false
