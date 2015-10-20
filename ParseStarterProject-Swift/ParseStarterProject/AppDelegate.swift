@@ -123,7 +123,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     var user = PFUser.currentUser()
                     print ("user is \(user)")
             
-                    if currentUser != nil {
+                    if currentUser == nil {
                         print("You are already signed in")
                         let ClosetViewController = storyBoard.instantiateViewControllerWithIdentifier("CategoryNavigationController")
                         window?.rootViewController = ClosetViewController

@@ -33,22 +33,22 @@ class OutfitViewController: UIViewController {
     }
     
     func loadImages() {
-        switch(self.outfitImages!.count){
-        case 1:
-            alphaImageView.setImageWithURL(NSURL(string: self.outfitImages![0])!)
-        case 2:
-            alphaImageView.setImageWithURL(NSURL(string: self.outfitImages![0])!)
-            betaImageView.setImageWithURL(NSURL(string: self.outfitImages![1])!)
-            
-        case 3:
-            alphaImageView.setImageWithURL(NSURL(string: self.outfitImages![0])!)
-            betaImageView.setImageWithURL(NSURL(string: self.outfitImages![1])!)
-            deltaImageView.setImageWithURL(NSURL(string: self.outfitImages![2])!)
-            
-        default:
-            print("do nothing")
-            
-        }
+//        switch(self.outfitImages!.count){
+//        case 1:
+//            alphaImageView.setImageWithURL(NSURL(string: self.outfitImages![0])!)
+//        case 2:
+//            alphaImageView.setImageWithURL(NSURL(string: self.outfitImages![0])!)
+//            betaImageView.setImageWithURL(NSURL(string: self.outfitImages![1])!)
+//            
+//        case 3:
+//            alphaImageView.setImageWithURL(NSURL(string: self.outfitImages![0])!)
+//            betaImageView.setImageWithURL(NSURL(string: self.outfitImages![1])!)
+//            deltaImageView.setImageWithURL(NSURL(string: self.outfitImages![2])!)
+//            
+//        default:
+//            print("do nothing")
+//            
+//        }
     }
     
     func fetchImagesRandomly() {
