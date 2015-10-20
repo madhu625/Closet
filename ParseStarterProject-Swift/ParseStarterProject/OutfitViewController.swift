@@ -33,9 +33,6 @@ class OutfitViewController: UIViewController {
             }
         }
         
-    }
-    
-    func loadImages() {
 
         self.outfitImages![1].getDataInBackgroundWithBlock{
             (imageData: NSData?, error: NSError?) -> Void in
