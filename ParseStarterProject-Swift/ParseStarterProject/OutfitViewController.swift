@@ -23,9 +23,6 @@ class OutfitViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //        self.outfitImages = ["http://ep.yimg.com/ay/stylinonline/star-wars-here-comes-trouble-youth-t-shirt-5.jpg","http://www.senecahs.org/vimages/shared/vnews/stories/54d37da28bc2f/1_jeans.jpg", "http://nsrgtrading.com/wp-content/uploads/2014/09/66.jpg"]
-        
         showOutFit(self.outfitImages)
         
         //let panGesture = UIScreenEdgePanGestureRecognizer(target: self, action: "panAction:")
@@ -88,10 +85,7 @@ class OutfitViewController: UIViewController {
         let navVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ShowOutFitsCollectionViewController") as! ShowOutFitsCollectionViewController
         
         navVC.fetchedOutFitImagesDict = self.fetchedOutFitImagesDict
-        
         self.navigationController!.pushViewController(navVC, animated: true)
-
-        
     }
     func fetchOldOutfits() {
         
@@ -99,19 +93,14 @@ class OutfitViewController: UIViewController {
         
         query.findObjectsInBackgroundWithBlock { (outFitObjects: [PFObject]?, error: NSError?) -> Void in
             if error == nil && outFitObjects != nil {
-                print(outFitObjects)
+               // print(outFitObjects)
                 for outFitObject in outFitObjects! {
                     if let outFitName = outFitObject["outfitName"] as? String {
-
                         let outFit = outFitObject["outfitImages"] as! [PFFile]
-                        print("Adding \(outFitName)")
+                       // print("Adding \(outFitName)")
                         self.fetchedOutFitImagesDict[outFitName] = outFit
-                        
-                    
                     }
                 }
-                
-
             } else {
                 print(error)
             }
@@ -141,7 +130,6 @@ class OutfitViewController: UIViewController {
         }
         
     }
-    
     
 }
 

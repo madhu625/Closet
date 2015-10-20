@@ -17,9 +17,9 @@ class ShowOutFitsCollectionViewController: UIViewController, UICollectionViewDel
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("Printing fetched array")
+       // print("Printing fetched array")
         for (name, _) in self.fetchedOutFitImagesDict{
-            print(name)
+           // print(name)
             self.outFitNames.append(name)
         }
         

@@ -77,15 +77,9 @@ class ClosetViewController: UIViewController,UITableViewDataSource, UICollection
         }
         
         
-        print("----------------------------------")
-        print(localOutfit)
-        
         navController.outfitImages = localOutfit
-
         
         self.navigationController!.pushViewController(navController, animated: true)
-        //self.dismissViewControllerAnimated(true, completion: nil)
-        
     }
     
     
@@ -96,9 +90,7 @@ class ClosetViewController: UIViewController,UITableViewDataSource, UICollection
             (categories: [PFObject]?, error: NSError?) -> Void in
             
             if error == nil {
-                // The find succeeded.
-                print("Successfully retrieved \(categories!.count) categories")
-                // Do something with the found objects
+                // print("Successfully retrieved \(categories!.count) categories")
                 if let categories = categories as [PFObject]? {
                     self.closetCategories = categories
                     
@@ -106,23 +98,14 @@ class ClosetViewController: UIViewController,UITableViewDataSource, UICollection
                     for category in categories {
                         let catItems = category["items"]
                         if catItems != nil {
-                         //   print (catItems.count)
-                         //   print (catItems)
                             self.closetItems.append(catItems as! ([AnyObject]))
-                          //  print (self.closetItems)
                         }
                         else{
                             self.closetItems.append([])
                         }
                     }
-                    print (self.closetItems)
-                    
                     let user = PFUser.currentUser()
-                    print ("user is \(user)")
-
-                    
                     self.tableView.reloadData()
-                  //  self.getItems()
                 }
                // for pfcategory in self.closetCategories {
                //     print(pfcategory["categoryName"])
@@ -161,7 +144,7 @@ class ClosetViewController: UIViewController,UITableViewDataSource, UICollection
                    // print (self.PFItems)
                    // self.tableView.reloadData()
                 }
-                print ("in getItems from categories")
+               // print ("in getItems from categories")
             } else {
                 // Log details of the failure
                 print("Error: \(error!) \(error!.userInfo)")
@@ -200,10 +183,7 @@ class ClosetViewController: UIViewController,UITableViewDataSource, UICollection
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         var currentCategory = closetCategories[collectionView.tag]
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("ItemCell", forIndexPath: indexPath) as! ItemCell
-        //cell.itemLabel.text = items[collectionView.tag][indexPath.row] as! NSString as String
-       //let profileImage = closetItems[collectionView.tag][0] as? PFFile
         let profileImage = closetItems[collectionView.tag][indexPath.row] as? PFFile
-       // print (profileImage)
         
         profileImage?.getDataInBackgroundWithBlock{
             (imageData: NSData?, error: NSError?) -> Void in
@@ -214,7 +194,7 @@ class ClosetViewController: UIViewController,UITableViewDataSource, UICollection
                 }
             }
         }
-        return cell;
+        return cell
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
@@ -225,23 +205,16 @@ class ClosetViewController: UIViewController,UITableViewDataSource, UICollection
        //     collectionView.cellForItemAtIndexPath(i).alpha = 1
        // }
         
-        print ("I am selected \(indexPath) \(collectionView.tag)")
+       // print ("I am selected \(indexPath) \(collectionView.tag)")
         let cell = collectionView.cellForItemAtIndexPath(indexPath)
         cell?.alpha = 0.6
-       // var previousSelection = catSelected[collectionView.tag]
-       // collectionView.cellForItemAtIndexPath(previousSelection).alpha = 1
         catSelected[collectionView.tag] = NSInteger(indexPath.row)
-        print (catSelected)
-        
-        
     }
     
     
     
     
     override func viewDidLoad() {
-        //let topCategory = Category(categoryName: "Pants")
-        //add(topCategory)
         super.viewDidLoad()
         addUser()
         getCategories()
@@ -282,16 +255,7 @@ class ClosetViewController: UIViewController,UITableViewDataSource, UICollection
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         let selectedImage = info[UIImagePickerControllerOriginalImage] as? UIImage
         let navController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("PhotoSelectViewController") as! PhotoSelectViewController
-        
-        print (selectedCategory)
-      //  let selectedCategoryLabel = closetCategories[selectedCategory] as! NSString as String
         let selectedCategoryLabel = closetCategories[selectedCategory]["categoryName"] as! String
-
-       // let selectedCategoryLabel = categories[selectedCategory] as! NSString as String
-        print (selectedCategoryLabel)
-        
-    
-       // navController.user = PFUser.currentUser()
         navController.inputCategoryIndex = selectedCategory
         navController.inputCategories = closetCategories
         navController.inputPhotoCategory = selectedCategoryLabel
@@ -300,9 +264,7 @@ class ClosetViewController: UIViewController,UITableViewDataSource, UICollection
  
         self.navigationController!.pushViewController(navController, animated: true)
         self.dismissViewControllerAnimated(true, completion: nil)
-        
     }
-    
 }
 
 
@@ -310,12 +272,10 @@ class CategoryCell:UITableViewCell{
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var itemCollectionView: UICollectionView!
     @IBOutlet weak var photoButton: UIButton!
-    
 }
 
 
 class ItemCell:UICollectionViewCell{
     @IBOutlet weak var itemLabel: UILabel!
     @IBOutlet weak var itemImageView: UIImageView!
-    
 }
