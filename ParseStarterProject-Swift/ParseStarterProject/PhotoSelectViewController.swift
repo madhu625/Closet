@@ -20,6 +20,8 @@ class PhotoSelectViewController: UIViewController, UIPickerViewDataSource, UIPic
     //parse begin
     var inputCategoryIndex:Int = 0
     
+
+    
     var inputCategories = [PFObject]()
     var printCategories = [Category]()
     var PFItems: [PFObject]?
