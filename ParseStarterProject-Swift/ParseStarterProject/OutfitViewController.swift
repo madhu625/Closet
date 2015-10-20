@@ -12,11 +12,9 @@ import Parse
 class OutfitViewController: UIViewController {
     
     var outfitImages: [PFFile]?
-    
     var fetchedOutFitImagesDict = [String:[PFFile]]()
     
     @IBOutlet weak var outFitNameTextField: UITextField!
-    
     @IBOutlet weak var accessoryImageView: UIImageView!
     @IBOutlet weak var shirtImageView: UIImageView!
     @IBOutlet weak var pantsImageView: UIImageView!
@@ -24,21 +22,12 @@ class OutfitViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         showOutFit(self.outfitImages)
-        
-        //let panGesture = UIScreenEdgePanGestureRecognizer(target: self, action: "panAction:")
-        //panGesture.edges = .Right
-        //view.addGestureRecognizer(panGesture)
-        
-        //Load previous outfits in the background
-        
         fetchOldOutfits()
-        
     }
     
     
     
     func showOutFit(outfits: [PFFile]?) {
-        
         outfits![0].getDataInBackgroundWithBlock{
             (imageData: NSData?, error: NSError?) -> Void in
             if error == nil {
@@ -73,24 +62,15 @@ class OutfitViewController: UIViewController {
     }
     
     
-//    func panAction(sender: UIScreenEdgePanGestureRecognizer) {
-//        let translation = sender.translationInView(sender.view!)
-//        
-//        print("Trans:\(translation)")
-//        
-//    }
-    
     @IBAction func showPreviousOutfits(sender: UIButton) {
-        
         let navVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ShowOutFitsCollectionViewController") as! ShowOutFitsCollectionViewController
         
         navVC.fetchedOutFitImagesDict = self.fetchedOutFitImagesDict
         self.navigationController!.pushViewController(navVC, animated: true)
     }
+    
     func fetchOldOutfits() {
-        
         let query = PFQuery(className:"outfits")
-        
         query.findObjectsInBackgroundWithBlock { (outFitObjects: [PFObject]?, error: NSError?) -> Void in
             if error == nil && outFitObjects != nil {
                // print(outFitObjects)
@@ -115,7 +95,6 @@ class OutfitViewController: UIViewController {
     
     
     @IBAction func saveOutFits(sender: UIButton) {
-        
         let pfOutFits = PFObject(className:"outfits")
         pfOutFits["outfitName"] = self.outFitNameTextField.text
         pfOutFits["outfitImages"] = self.outfitImages
@@ -130,7 +109,6 @@ class OutfitViewController: UIViewController {
         }
         
     }
-    
 }
 
 

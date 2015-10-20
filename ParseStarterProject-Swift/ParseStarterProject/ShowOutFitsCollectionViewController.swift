@@ -42,9 +42,7 @@ class ShowOutFitsCollectionViewController: UIViewController, UICollectionViewDel
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("OutFitCell", forIndexPath: indexPath) as! OutFitCellCollectionViewCell
         
         let outFitName = self.outFitNames[indexPath.row]
-        
         cell.OutFitLabel.text = outFitName
-        
         let outfits = self.fetchedOutFitImagesDict[outFitName]
         
         outfits![0].getDataInBackgroundWithBlock{
