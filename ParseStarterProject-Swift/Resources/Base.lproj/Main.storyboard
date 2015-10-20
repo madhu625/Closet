@@ -46,7 +46,7 @@
         <!--Tour View Controller-->
         <scene sceneID="Xwf-rF-D5N">
             <objects>
-                <viewController storyboardIdentifier="TourViewController" id="YTH-Jb-K5v" customClass="TourViewController" customModule="Watoo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Tour1ViewController" id="YTH-Jb-K5v" customClass="TourViewController" customModule="Watoo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="okZ-80-eJD"/>
                         <viewControllerLayoutGuide type="bottom" id="iMc-kF-Py8"/>
@@ -84,12 +84,12 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dGW-kE-dRl" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <swipeGestureRecognizer direction="right" id="UzP-hZ-ThB"/>
             </objects>
-            <point key="canvasLocation" x="-857" y="-595"/>
+            <point key="canvasLocation" x="-857" y="-584"/>
         </scene>
-        <!--View Controller-->
+        <!--Tour2 View Controller-->
         <scene sceneID="rj6-BY-uov">
             <objects>
-                <viewController id="1Mg-kM-RcK" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Tour2ViewController" id="1Mg-kM-RcK" customClass="Tour2ViewController" customModule="Watoo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="DIO-ur-eG0"/>
                         <viewControllerLayoutGuide type="bottom" id="E2r-vI-rvW"/>
@@ -106,11 +106,6 @@
                                     <segue destination="ai7-wr-GKM" kind="modal" id="ADg-Bm-feX"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ofv-At-86Z">
-                                <rect key="frame" x="136" y="251" width="48" height="30"/>
-                                <animations/>
-                                <state key="normal" title="Page 2"/>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JGH-TU-ESi">
                                 <rect key="frame" x="268" y="347" width="32" height="30"/>
                                 <animations/>
@@ -122,16 +117,21 @@
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="uYt-fV-qta" appends="YES" id="wVH-MQ-Isq"/>
+                        </connections>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BCE-wA-MAa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="uYt-fV-qta"/>
             </objects>
             <point key="canvasLocation" x="-445" y="-584"/>
         </scene>
-        <!--View Controller-->
+        <!--Tour3 View Controller-->
         <scene sceneID="xSL-hE-p9N">
             <objects>
-                <viewController id="49B-wK-QaZ" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Tour3ViewController" id="49B-wK-QaZ" customClass="Tour3ViewController" customModule="Watoo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="why-Dj-pnv"/>
                         <viewControllerLayoutGuide type="bottom" id="0qn-Pr-prc"/>
@@ -140,11 +140,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UAE-NK-SJQ">
-                                <rect key="frame" x="136" y="236" width="48" height="30"/>
-                                <animations/>
-                                <state key="normal" title="Page 3"/>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wZo-ZE-fgX">
                                 <rect key="frame" x="263" y="350" width="37" height="30"/>
                                 <animations/>
@@ -156,9 +151,14 @@
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="eGd-jM-p4v" appends="YES" id="j2f-1r-pFd"/>
+                        </connections>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8eF-1Y-HWi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="eGd-jM-p4v"/>
             </objects>
             <point key="canvasLocation" x="-69" y="-584"/>
         </scene>
@@ -451,6 +451,12 @@
                                     <action selector="showPreviousOutfits:" destination="qFZ-Hb-Jvk" eventType="touchUpInside" id="lMR-N1-Rsy"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Outfit Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Qs-4b-xYO">
+                                <rect key="frame" x="45" y="484" width="93" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -693,6 +699,6 @@
         <image name="weartodaybutton" width="265" height="52"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="c7b-BI-B1o"/>
+        <segue reference="CEs-Gf-dKi"/>
     </inferredMetricsTieBreakers>
 </document>
