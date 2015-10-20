@@ -12,7 +12,7 @@ import Parse
 
 class OutfitViewController: UIViewController {
     
-    var outfitImages: [String]?
+    var outfitImages: [AnyObject]?
     
     @IBOutlet weak var alphaImageView: UIImageView!
     @IBOutlet weak var betaImageView: UIImageView!

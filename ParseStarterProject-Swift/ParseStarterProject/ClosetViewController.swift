@@ -141,8 +141,18 @@ class ClosetViewController: UIViewController,UITableViewDataSource, UICollection
     
     @IBAction func onCreateOutfit(sender: AnyObject) {
         let navController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("OutfitViewController") as! OutfitViewController
+        var localOutfit = [AnyObject]()
+        localOutfit.append (closetCategories[0]["items"][0])
+        localOutfit.append (closetCategories[1]["items"][0])
+        localOutfit.append (closetCategories[2]["items"][0])
         
-        navController.outfitImages = ["http://ep.yimg.com/ay/stylinonline/star-wars-here-comes-trouble-youth-t-shirt-5.jpg","http://www.senecahs.org/vimages/shared/vnews/stories/54d37da28bc2f/1_jeans.jpg", "http://nsrgtrading.com/wp-content/uploads/2014/09/66.jpg"]
+        navController.outfitImages = localOutfit
+
+
+        
+
+        
+      //  navController.outfitImages = ["http://ep.yimg.com/ay/stylinonline/star-wars-here-comes-trouble-youth-t-shirt-5.jpg","http://www.senecahs.org/vimages/shared/vnews/stories/54d37da28bc2f/1_jeans.jpg", "http://nsrgtrading.com/wp-content/uploads/2014/09/66.jpg"]
         
         self.navigationController!.pushViewController(navController, animated: true)
         //self.dismissViewControllerAnimated(true, completion: nil)
