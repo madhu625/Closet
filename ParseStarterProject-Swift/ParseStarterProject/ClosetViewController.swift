@@ -104,7 +104,7 @@ class ClosetViewController: UIViewController,UITableViewDataSource, UICollection
                     
                     
                     for category in categories {
-                        var catItems = category["items"]
+                        let catItems = category["items"]
                         if catItems != nil {
                          //   print (catItems.count)
                          //   print (catItems)
@@ -117,7 +117,7 @@ class ClosetViewController: UIViewController,UITableViewDataSource, UICollection
                     }
                     print (self.closetItems)
                     
-                    var user = PFUser.currentUser()
+                    let user = PFUser.currentUser()
                     print ("user is \(user)")
 
                     
@@ -126,7 +126,7 @@ class ClosetViewController: UIViewController,UITableViewDataSource, UICollection
                 }
                // for pfcategory in self.closetCategories {
                //     print(pfcategory["categoryName"])
-                    
+                
                // }
             } else {
                 // Log details of the failure
@@ -184,7 +184,7 @@ class ClosetViewController: UIViewController,UITableViewDataSource, UICollection
        // cell.itemCollectionView.tag = indexPath.row
        // cell.photoButton.tag = indexPath.row
 
-        var name = closetCategories[indexPath.row]["categoryName"]
+        let name = closetCategories[indexPath.row]["categoryName"]
         cell.categoryLabel.text = name as! String
         cell.itemCollectionView.tag = indexPath.row
         cell.photoButton.tag = indexPath.row
