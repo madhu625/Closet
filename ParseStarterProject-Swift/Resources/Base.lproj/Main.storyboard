@@ -379,7 +379,13 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Closet" id="NWx-Sb-pbb"/>
+                    <navigationItem key="navigationItem" title="Closet" id="NWx-Sb-pbb">
+                        <barButtonItem key="rightBarButtonItem" title="Logout" id="ZY2-mu-pED">
+                            <connections>
+                                <action selector="onLogout:" destination="7Ih-VP-cXf" id="hdV-ld-ryT"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="dHx-fe-Frn" id="AeM-eW-V9E"/>
                     </connections>
@@ -495,10 +501,10 @@
             </objects>
             <point key="canvasLocation" x="475" y="724"/>
         </scene>
-        <!--ShowOutFitsCollectionViewController-->
+        <!--Your Outfits-->
         <scene sceneID="R5e-XN-eGZ">
             <objects>
-                <viewController storyboardIdentifier="ShowOutFitsCollectionViewController" title="ShowOutFitsCollectionViewController" id="kEa-6O-Bva" customClass="ShowOutFitsCollectionViewController" customModule="Watoo" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ShowOutFitsCollectionViewController" title="Your Outfits" id="kEa-6O-Bva" customClass="ShowOutFitsCollectionViewController" customModule="Watoo" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="scr-2j-Q8a">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
