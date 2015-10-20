@@ -1,72 +1,92 @@
 //
-//  ParseLoginViewController.swift
-//  ParseStarterProject-Swift
+//  ViewController.swift
+//  chatclient
 //
-//  Created by Ravinder Matte on 10/11/15.
-//  Copyright © 2015 Parse. All rights reserved.
+//  Created by Jay Shah on 9/24/15.
+//  Copyright © 2015 Jay Shah. All rights reserved.
 //
 
 import UIKit
 import Parse
 
 class ParseLoginViewController: UIViewController {
-
-    @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
+    
+    @IBOutlet weak var emailField: UITextField!
+    @IBOutlet weak var passwordField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print ("in parse login view controller")
-        
-        saveCategories()
-        
+        // Do any additional setup after loading the view, typically from a nib.
     }
     
-    func saveCategories(){
-        
-    }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     
-    @IBAction func parseSignup(sender: UIButton) {
+    @IBAction func clickSignInButton(sender: AnyObject) {
+        
         let user = PFUser()
-        user.username = emailTextField.text
-        user.password = passwordTextField.text
-        user.email = emailTextField.text
         
-        user.signUpInBackgroundWithBlock {
-            (succeeded: Bool, error: NSError?) -> Void in
-            if let error = error {
-                let errorString = error.userInfo["error"] as? NSString
-                    print(errorString!)
-                
-            } else {
-                // Hooray! Let them use the app now.
-                self.dismissViewControllerAnimated(true, completion: nil)
-            }
-        }
-    }
-    
-    @IBAction func parseLogin(sender: UIButton) {
+        user.username = passwordField.text
+        user.password = passwordField.text
+        user.email = emailField.text
         
-        PFUser.logInWithUsernameInBackground(emailTextField.text!, password:passwordTextField.text!) {
+        PFUser.logInWithUsernameInBackground(user.username!, password:user.password!) {
             (user: PFUser?, error: NSError?) -> Void in
             if user != nil {
-                print("You are in")
-                self.dismissViewControllerAnimated(true, completion: nil)
+                // Do stuff after successful login.
+                let navController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("CategoryNavigationController") as UIViewController
+                
+                self.presentViewController(navController, animated: true, completion: nil)
+
                 
             } else {
-                let errorString = error!.userInfo["error"] as? NSString
-                print(errorString!)
+                // The login failed. Check error to see why.
+                let errorString = error!.userInfo["error"] as? String
+                self.showAlert("SignIn Failed", message: errorString!)
                 
+            }
+        }
+        
+    }
+    @IBAction func clickSignUpButton(sender: AnyObject) {
+        
+        let user = PFUser()
+        
+        user.username = emailField.text
+        user.password = passwordField.text
+        user.email = emailField.text
+        
+        if (user.username != nil &&  user.password != nil && user.email != nil) {
+            user.signUpInBackgroundWithBlock {
+                (succeeded: Bool, error: NSError?) -> Void in
+                if let error = error {
+                    let errorString = error.userInfo["error"] as? String
+                    
+                    self.showAlert("SignUp Failed", message: errorString!)
+                    
+                } else {
+                    // Hooray! Let them use the app now.
+                    print("you just signed up", terminator: "")
+                    
+                    let navController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("CategoryNavigationController") as UIViewController
+                    
+                    self.presentViewController(navController, animated: true, completion: nil)
+
+                }
             }
         }
     }
     
-
-    
+    func showAlert (title: String, message: String) {
+        
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        
+        alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.Default, handler: nil))
+        
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
 }
+

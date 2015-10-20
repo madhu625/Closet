@@ -101,6 +101,7 @@
 				20775C5C1BCADA50001471BC /* CategoryViewController.swift */,
 				AD870FA71BD2FF2600F7034A /* PhotoSelectViewController.swift */,
 				AD870FA91BD2FF9A00F7034A /* ClosetViewController.swift */,
+				20775C581BCAC899001471BC /* ParseLoginViewController.swift */,
 				AD870FAB1BD2FFAC00F7034A /* OutfitViewController.swift */,
 			);
 			name = ViewControllers;
@@ -151,7 +152,6 @@
 				AD4E04771BD5BEFC009FB1EA /* API */,
 				2738E0281BD2EBDD00A37E79 /* Models */,
 				2738E0261BD2EBC400A37E79 /* ViewControllers */,
-				20775C581BCAC899001471BC /* ParseLoginViewController.swift */,
 				81BA814A1A49DA1800E65899 /* AppDelegate.swift */,
 				814C3AC61B69877600E307BB /* Main.storyboard */,
 				20775C811BCB5D08001471BC /* ParseStarterProject-Swift-Bridging-Header.h */,
