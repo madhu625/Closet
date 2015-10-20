@@ -300,10 +300,11 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="76" height="77.5"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
-                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RlR-jw-lHa">
+                                                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RlR-jw-lHa">
                                                                         <rect key="frame" x="0.0" y="0.0" width="76" height="78"/>
                                                                         <color key="backgroundColor" white="0.77000000000000002" alpha="1" colorSpace="calibratedWhite"/>
                                                                         <color key="tintColor" white="0.77000000000000002" alpha="1" colorSpace="calibratedWhite"/>
+                                                                        <gestureRecognizers/>
                                                                     </imageView>
                                                                 </subviews>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -378,15 +379,18 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZpK-zL-XL5">
                                 <rect key="frame" x="243" y="510" width="34" height="30"/>
                                 <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="saveOutFits:" destination="qFZ-Hb-Jvk" eventType="touchUpInside" id="WSn-1s-lP0"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="5wI-S2-FbN"/>
                     <connections>
-                        <outlet property="alphaImageView" destination="zmT-rd-M4w" id="Ygq-0K-yoD"/>
-                        <outlet property="betaImageView" destination="r1N-Nt-4Wp" id="yPj-Zq-ryD"/>
-                        <outlet property="deltaImageView" destination="EaQ-Mx-Ykd" id="J2s-2h-YhJ"/>
+                        <outlet property="accessoryImageView" destination="zmT-rd-M4w" id="Vdt-Le-oVG"/>
+                        <outlet property="pantsImageView" destination="EaQ-Mx-Ykd" id="Zqs-N2-yNo"/>
+                        <outlet property="shirtImageView" destination="r1N-Nt-4Wp" id="kta-by-teG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rJH-vv-oMq" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -532,6 +536,6 @@
         <image name="weartodaybutton" width="265" height="52"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="CEs-Gf-dKi"/>
+        <segue reference="c7b-BI-B1o"/>
     </inferredMetricsTieBreakers>
 </document>

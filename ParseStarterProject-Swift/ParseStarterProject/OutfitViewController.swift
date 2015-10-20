@@ -1,5 +1,4 @@
 
-//
 //  OutfitViewController.swift
 //  ParseStarterProject-Swift
 //
@@ -12,50 +11,59 @@ import Parse
 
 class OutfitViewController: UIViewController {
     
-    var outfitImages: [AnyObject]?
+    var outfitImages: [PFFile]?
     
-    @IBOutlet weak var alphaImageView: UIImageView!
-    @IBOutlet weak var betaImageView: UIImageView!
-    @IBOutlet weak var deltaImageView: UIImageView!
+    @IBOutlet weak var accessoryImageView: UIImageView!
+    @IBOutlet weak var shirtImageView: UIImageView!
+    @IBOutlet weak var pantsImageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        self.outfitImages = ["http://ep.yimg.com/ay/stylinonline/star-wars-here-comes-trouble-youth-t-shirt-5.jpg","http://www.senecahs.org/vimages/shared/vnews/stories/54d37da28bc2f/1_jeans.jpg", "http://nsrgtrading.com/wp-content/uploads/2014/09/66.jpg"]
-//        
-//        // Do any additional setup after loading the view.
         
-        if outfitImages != nil {
-            self.loadImages()
-        } else {
-            self.fetchImagesRandomly()
+        //        self.outfitImages = ["http://ep.yimg.com/ay/stylinonline/star-wars-here-comes-trouble-youth-t-shirt-5.jpg","http://www.senecahs.org/vimages/shared/vnews/stories/54d37da28bc2f/1_jeans.jpg", "http://nsrgtrading.com/wp-content/uploads/2014/09/66.jpg"]
+        
+        
+        self.outfitImages![0].getDataInBackgroundWithBlock{
+            (imageData: NSData?, error: NSError?) -> Void in
+            if error == nil {
+                if let imageData = imageData {
+                    let image = UIImage(data:imageData)
+                    self.accessoryImageView.image = image
+                }
+            }
         }
         
     }
     
     func loadImages() {
-//        switch(self.outfitImages!.count){
-//        case 1:
-//            alphaImageView.setImageWithURL(NSURL(string: self.outfitImages![0])!)
-//        case 2:
-//            alphaImageView.setImageWithURL(NSURL(string: self.outfitImages![0])!)
-//            betaImageView.setImageWithURL(NSURL(string: self.outfitImages![1])!)
-//            
-//        case 3:
-//            alphaImageView.setImageWithURL(NSURL(string: self.outfitImages![0])!)
-//            betaImageView.setImageWithURL(NSURL(string: self.outfitImages![1])!)
-//            deltaImageView.setImageWithURL(NSURL(string: self.outfitImages![2])!)
-//            
-//        default:
-//            print("do nothing")
-//            
-//        }
+
+        self.outfitImages![1].getDataInBackgroundWithBlock{
+            (imageData: NSData?, error: NSError?) -> Void in
+            if error == nil {
+                if let imageData = imageData {
+                    let image = UIImage(data:imageData)
+                    self.shirtImageView.image = image
+                }
+            }
+        }
+        
+        self.outfitImages![2].getDataInBackgroundWithBlock{
+            (imageData: NSData?, error: NSError?) -> Void in
+            if error == nil {
+                if let imageData = imageData {
+                    let image = UIImage(data:imageData)
+                    self.pantsImageView.image = image
+                }
+            }
+        }
+        
     }
     
     func fetchImagesRandomly() {
         
-//        ParseClient.sharedInstance.fetchRandomOutfit() {
-//            
-//        }
+        //        ParseClient.sharedInstance.fetchRandomOutfit() {
+        //
+        //        }
         
     }
     
@@ -65,14 +73,19 @@ class OutfitViewController: UIViewController {
     }
     
     
-    /*
-    // MARK: - Navigation
     
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    // Get the new view controller using segue.destinationViewController.
-    // Pass the selected object to the new view controller.
+    @IBAction func saveOutFits(sender: UIButton) {
+        
+        var pfOutFits = PFObject(className:"outfits")
+        pfOutFits["outfitImages"] = self.outfitImages
+        pfOutFits.saveInBackgroundWithBlock {
+            (success: Bool, error: NSError?) -> Void in
+            if (success) {
+                print("Saved outfits")
+            } else {
+                // There was a problem, check error.description
+            }
+        }
+        
     }
-    */
-    
 }
